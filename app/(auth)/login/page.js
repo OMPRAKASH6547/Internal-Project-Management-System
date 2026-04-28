@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import LoginForm from "@/components/LoginForm";
 import ErrorState from "@/components/ErrorState";
 import { useProjectStore } from "@/store/useProjectStore";
 
-export default function LoginPage() {
+function LoginPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialMode = searchParams.get("mode") === "register" ? "register" : "login";
@@ -39,5 +39,13 @@ export default function LoginPage() {
         </button>
       </div>
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<main className="flex min-h-screen items-center justify-center p-4 text-sm text-zinc-600">Loading...</main>}>
+      <LoginPageContent />
+    </Suspense>
   );
 }
