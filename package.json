@@ -23,6 +23,7 @@
     "mongoose": "^8.23.1",
     "morgan": "^1.10.1",
     "next": "16.2.4",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "socket.io": "^4.8.3",
